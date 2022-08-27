@@ -30,6 +30,8 @@
 ** Output parameters:   queuedCmdIndex
 ** Returned value:      true
 *********************************************************************************************************/
+
+/*mi primer merge*/
 int SetEndEffectorParams(EndEffectorParams *endEffectorParams, bool isQueued, uint64_t *queuedCmdIndex)
 {
     Message tempMessage;
