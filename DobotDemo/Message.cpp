@@ -32,6 +32,7 @@ ProtocolResult MessageRead(ProtocolHandler *protocolHandler, Message *message)
     RingBuffer *rxPacketQueue = &protocolHandler->rxPacketQueue;
     Packet *packet = &protocolHandler->rxAppPacket;
 
+    /*mmi primer cometntario*/
     if (RingBufferIsEmpty(rxPacketQueue)) {
         return ProtocolReadMessageQueueEmpty;
     }
