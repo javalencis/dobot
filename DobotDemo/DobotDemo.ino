@@ -221,11 +221,13 @@ void loop()
             if(count & 0x01)
             {
                 gPTPCmd.x += 100;
+                gPTPCmd.z += 20;
                 SetPTPCmd(&gPTPCmd, true, &gQueuedCmdIndex);
             }
             else
             {
-                gPTPCmd.x -= 100;
+                gPTPCmd.z -=20;
+
                 SetPTPCmd(&gPTPCmd, true, &gQueuedCmdIndex);
             }
         }
