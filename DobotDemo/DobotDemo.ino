@@ -214,25 +214,28 @@ void loop()
               }
         }
         #else
-        if(millis() - timer > 3000)
+        if(millis() - timer > 2000)
         {
             timer = millis();
             count++;
             if(count & 0x01)
             {
-                gPTPCmd.x += 100;
-                gPTPCmd.z += 20;
+                gPTPCmd.x = 238;
+                gPTPCmd.y = -28;
+                gPTPCmd.z = -20;
                 SetPTPCmd(&gPTPCmd, true, &gQueuedCmdIndex);
+                SetEndEffectorSuctionCup(true,true,&gQueuedCmdIndex);
             }
             else
             {
-                gPTPCmd.z -=20;
-
+                gPTPCmd.x = 175;
+                gPTPCmd.y = 76;
+                gPTPCmd.z = -20;
                 SetPTPCmd(&gPTPCmd, true, &gQueuedCmdIndex);
+                SetEndEffectorSuctionCup(false,true,&gQueuedCmdIndex);
             }
         }
         #endif
         ProtocolProcess();
     }
 }   
-
