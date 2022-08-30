@@ -6,6 +6,7 @@
 **--------------File Info---------------------------------------------------------------------------------
 ** File name:           main.cpp
 ** Latest modified Date:2016-10-24
+
 ** Latest Version:      V2.0.0
 ** Descriptions:        main body
 **
@@ -178,6 +179,8 @@ void loop()
     printf("\r\n======Enter demo application======\r\n");
     
     SetPTPCmd(&gPTPCmd, true, &gQueuedCmdIndex);
+    SetEndEffectorSuctionCup(true,true,&gQueuedCmdIndex);
+
     for(; ;)
     {
         static uint32_t timer = millis();
@@ -224,7 +227,7 @@ void loop()
                 gPTPCmd.y = -28;
                 gPTPCmd.z = -20;
                 SetPTPCmd(&gPTPCmd, true, &gQueuedCmdIndex);
-                SetEndEffectorSuctionCup(true,true,&gQueuedCmdIndex);
+                
             }
             else
             {
@@ -232,8 +235,10 @@ void loop()
                 gPTPCmd.y = 76;
                 gPTPCmd.z = -20;
                 SetPTPCmd(&gPTPCmd, true, &gQueuedCmdIndex);
-                SetEndEffectorSuctionCup(false,true,&gQueuedCmdIndex);
+                
             }
+            
+
         }
         #endif
         ProtocolProcess();
